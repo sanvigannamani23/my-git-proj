@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Interactive counter</title>
+</head>
+<body>
+<background-color: yellow;>
+   <h1>Interactive counter</h1>
+  <div id="counter">0</div>
+  <button onclick="increase()">+1</button>
+  <button onclick="reset()">Reset</button>
+  <button onclick="decrease()">-1</button>
+
+
+  <script>
+    let count = 0;
+    const counterElement = document.getElementById("counter");
+
+    function updateCounter() {
+      counterElement.textContent = count;
+    }
+
+    function increase() {
+      count++;
+      updateCounter();
+    }
+
+    function reset() {
+      count = 0;
+      updateCounter();
+    }
+
+    function decrease() {
+      count--;
+      updateCounter();
+    }
+  </script>
+</body>
+</html>

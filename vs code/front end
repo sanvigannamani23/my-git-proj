@@ -1,0 +1,11 @@
+function display(){
+
+    setTimeout(()=>{callback();},10000);
+
+}
+
+function updatestudent(){
+    console.log("Updating the student Data");
+}
+
+manageStudent(updateStudent);

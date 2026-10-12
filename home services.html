@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home Services Booking</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial;
+}
+
+body{
+    background:#f5f5f5;
+    color:#222;
+}
+
+header{
+    background:#222;
+    color:white;
+    padding:18px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+header h2{
+    color:#ff9800;
+}
+
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+nav a:hover{
+    color:#ff9800;
+}
+
+.hero{
+    background:linear-gradient(120deg,#222,#ff9800);
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:25px;
+}
+
+button{
+    background:#ff9800;
+    color:white;
+    border:0;
+    padding:12px 20px;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#e68900;
+}
+
+.section{
+    padding:45px 7%;
+}
+
+.section h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 3px 12px #0002;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.icon{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.card h3{
+    margin:10px 0;
+}
+
+.card p{
+    color:#666;
+    margin-bottom:15px;
+}
+
+.form-box{
+    max-width:750px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 3px 12px #0002;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.form-box button{
+    width:100%;
+    margin-top:20px;
+}
+
+.price-box{
+    background:#fff3e0;
+    padding:20px;
+    margin-top:20px;
+    border-radius:8px;
+}
+
+.price-box p{
+    margin:10px 0;
+    font-size:17px;
+}
+
+.total{
+    font-size:25px;
+    font-weight:bold;
+    color:#e65100;
+}
+
+.booking{
+    background:white;
+    padding:20px;
+    margin:15px auto;
+    max-width:800px;
+    border-radius:8px;
+    box-shadow:0 2px 8px #0002;
+    border-left:5px solid #ff9800;
+}
+
+.booking p{
+    margin:8px 0;
+}
+
+.paid{
+    color:green;
+    font-weight:bold;
+}
+
+.pending{
+    color:red;
+    font-weight:bold;
+}
+
+.upi{
+    background:#f3e5f5;
+    padding:20px;
+    margin-top:20px;
+    border-radius:8px;
+}
+
+.upi-code{
+    font-size:22px;
+    color:#6a1b9a;
+    font-weight:bold;
+}
+
+.success{
+    color:green;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:30px;
+}
+
+@media(max-width:900px){
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+}
+
+@media(max-width:600px){
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    nav{
+        text-align:center;
+    }
+
+    nav a{
+        display:inline-block;
+        margin:5px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h2>HOME SREVICES</h2>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#booking">Book Service</a>
+<a href="#bookings">My Bookings</a>
+<a href="#payment">Payment</a>
+</nav>
+
+</header>
+
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+<h1>Home Services Booking</h1>
+
+<p>Book trusted professionals for your home</p>
+
+<button onclick="document.getElementById('services').scrollIntoView()">
+Explore Services
+</button>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="section" id="services">
+
+<h2>Our Home Services</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">🔧</div>
+
+<h3>Plumbing</h3>
+
+<p>Pipe repair, tap repair and water leakage services.</p>
+
+<button onclick="bookService('Plumbing')">
+Book Now
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⚡</div>
+
+<h3>Electrical</h3>
+
+<p>Electrical repair, wiring and installation.</p>
+
+<button onclick="bookService('Electrical')">
+Book Now
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🧹</div>
+
+<h3>Cleaning</h3>
+
+<p>Complete home cleaning and deep cleaning.</p>
+
+<button onclick="bookService('Cleaning')">
+Book Now
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🎨</div>
+
+<h3>Painting</h3>
+
+<p>Interior and exterior home painting.</p>
+
+<button onclick="bookService('Painting')">
+Book Now
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">❄️</div>
+
+<h3>AC Repair</h3>
+
+<p>AC service, repair and installation.</p>
+
+<button onclick="bookService('AC Repair')">
+Book Now
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🛠️</div>
+
+<h3>Carpentry</h3>
+
+<p>Furniture repair and carpentry work.</p>
+
+<button onclick="bookService('Carpentry')">
+Book Now
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🪳</div>
+
+<h3>Pest Control</h3>
+
+<p>Professional pest control services.</p>
+
+<button onclick="bookService('Pest Control')">
+Book Now
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🌱</div>
+
+<h3>Gardening</h3>
+
+<p>Garden maintenance and plant care.</p>
+
+<button onclick="bookService('Gardening')">
+Book Now
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BOOKING -->
+
+<section class="section" id="booking">
+
+<h2>Book Your Service</h2>
+
+<div class="form-box">
+
+<form onsubmit="confirmBooking(event)">
+
+<label>Selected Service</label>
+
+<select id="service" onchange="loadOptions()" required>
+
+<option value="">Select Service</option>
+
+<option>Plumbing</option>
+<option>Electrical</option>
+<option>Cleaning</option>
+<option>Painting</option>
+<option>AC Repair</option>
+<option>Carpentry</option>
+<option>Pest Control</option>
+<option>Gardening</option>
+
+</select>
+
+
+<label>Service Option</label>
+
+<select id="option" onchange="calculatePrice()" required>
+
+<option value="">Select Service First</option>
+
+</select>
+
+
+<label>Service Provider</label>
+
+<select id="provider" required>
+
+<option value="">Select Provider</option>
+
+</select>
+
+
+<label>Customer Name</label>
+
+<input type="text" id="name" placeholder="Enter your name" required>
+
+
+<label>Phone Number</label>
+
+<input type="text"
+id="phone"
+maxlength="10"
+placeholder="10 digit phone number"
+required>
+
+
+<label>Location</label>
+
+<input type="text"
+id="location"
+placeholder="Enter your home location"
+required>
+
+
+<label>Booking Date</label>
+
+<input type="date" id="date" required>
+
+
+<label>Number of Days</label>
+
+<input type="number"
+id="days"
+min="1"
+value="1"
+oninput="calculatePrice()"
+required>
+
+
+<label>Start Time</label>
+
+<input type="time" id="time" required>
+
+
+<div class="price-box">
+
+<h3>Booking Cost</h3>
+
+<p>Price per day:
+₹<span id="perDay">0</span>
+</p>
+
+<p>Number of days:
+<span id="dayCount">1</span>
+</p>
+
+<p>Service Cost:
+₹<span id="serviceCost">0</span>
+</p>
+
+<p>GST (18%):
+₹<span id="gst">0</span>
+</p>
+
+<hr>
+
+<p class="total">
+Total: ₹<span id="total">0</span>
+</p>
+
+</div>
+
+
+<div class="upi">
+
+<h3>UPI Payment</h3>
+
+<p>After confirming the booking, pay the displayed total using UPI.</p>
+
+<p class="upi-code">
+UPI ID: homeservice@upi
+</p>
+
+</div>
+
+
+<button type="submit">
+Confirm Booking
+</button>
+
+</form>
+
+<p id="message"></p>
+
+</div>
+
+</section>
+
+
+<!-- BOOKINGS -->
+
+<section class="section" id="bookings">
+
+<h2>My Bookings</h2>
+
+<div id="bookingList">
+
+<p style="text-align:center">
+No bookings yet.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section class="section" id="payment">
+
+<h2>Payment</h2>
+
+<div class="form-box">
+
+<h3>Payment Details</h3>
+
+<p>
+Booking Amount:
+₹<span id="paymentAmount">0</span>
+</p>
+
+<label>Payment Method</label>
+
+<select id="paymentMethod">
+
+<option>UPI</option>
+<option>Debit Card</option>
+<option>Credit Card</option>
+<option>Cash on Service</option>
+
+</select>
+
+<div class="upi">
+
+<p>UPI ID:</p>
+
+<p class="upi-code">
+homeservice@upi
+</p>
+
+<p>
+Amount to Pay:
+₹<span id="upiAmount">0</span>
+</p>
+
+</div>
+
+<button onclick="makePayment()">
+Pay Now
+</button>
+
+<p id="paymentMessage"></p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 HomeServe - Home Services Booking</p>
+
+</footer>
+
+
+<script>
+
+/* SERVICE DATA */
+
+const services = {
+
+"Plumbing":[
+["Tap Repair",400,"Raj Plumbing Services"],
+["Pipe Leakage Repair",600,"Raj Plumbing Services"],
+["Bathroom Plumbing",800,"Pro Plumbing Team"]
+],
+
+"Electrical":[
+["Fan Repair",350,"Ravi Electrical Services"],
+["Switch Repair",250,"Ravi Electrical Services"],
+["House Wiring",1000,"PowerFix Services"]
+],
+
+"Cleaning":[
+["Basic Home Cleaning",700,"CleanHome Services"],
+["Deep Cleaning",1200,"CleanHome Services"],
+["Full House Cleaning",1800,"Premium Clean Services"]
+],
+
+"Painting":[
+["Single Room",1500,"Smart Paint Services"],
+["Two Rooms",2800,"Smart Paint Services"],
+["Full House Painting",7000,"ColorPro Services"]
+],
+
+"AC Repair":[
+["AC General Service",500,"CoolFix AC Services"],
+["AC Repair",800,"CoolFix AC Services"],
+["AC Installation",1500,"CoolTech Services"]
+],
+
+"Carpentry":[
+["Furniture Repair",500,"WoodCraft Services"],
+["Door Repair",700,"WoodCraft Services"],
+["Furniture Installation",900,"Carpenter Pro"]
+],
+
+"Pest Control":[
+["1 BHK Pest Control",800,"SafeHome Pest Control"],
+["2 BHK Pest Control",1200,"SafeHome Pest Control"],
+["3 BHK Pest Control",1600,"PestFree Services"]
+],
+
+"Gardening":[
+["Garden Cleaning",400,"GreenGarden Services"],
+["Plant Maintenance",500,"GreenGarden Services"],
+["Complete Garden Care",900,"GreenGarden Services"]
+]
+
+};
+
+
+/* BOOK NOW */
+
+function bookService(service){
+
+document.getElementById("service").value=service;
+
+loadOptions();
+
+document.getElementById("booking").scrollIntoView();
+
+}
+
+
+/* LOAD OPTIONS */
+
+function loadOptions(){
+
+let service=document.getElementById("service").value;
+
+let option=document.getElementById("option");
+
+let provider=document.getElementById("provider");
+
+option.innerHTML="<option value=''>Select Option</option>";
+
+provider.innerHTML="<option value=''>Select Provider</option>";
+
+if(!service){
+return;
+}
+
+services[service].forEach(function(item){
+
+let opt=document.createElement("option");
+
+opt.value=item[0];
+
+opt.textContent=item[0]+" - ₹"+item[1]+"/day";
+
+option.appendChild(opt);
+
+});
+
+calculatePrice();
+
+}
+
+
+/* CALCULATE PRICE */
+
+function calculatePrice(){
+
+let service=document.getElementById("service").value;
+
+let option=document.getElementById("option").value;
+
+let days=parseInt(document.getElementById("days").value)||1;
+
+let item=null;
+
+if(service){
+
+item=services[service].find(function(x){
+
+return x[0]===option;
+
+});
+
+}
+
+if(item){
+
+let provider=document.getElementById("provider");
+
+provider.innerHTML=
+"<option>"+item[2]+"</option>";
+
+let price=item[1];
+
+let serviceCost=price*days;
+
+let gst=Math.round(serviceCost*0.18);
+
+let total=serviceCost+gst;
+
+document.getElementById("perDay").textContent=price;
+
+document.getElementById("dayCount").textContent=days;
+
+document.getElementById("serviceCost").textContent=serviceCost;
+
+document.getElementById("gst").textContent=gst;
+
+document.getElementById("total").textContent=total;
+
+}
+
+}
+
+
+/* CONFIRM BOOKING */
+
+function confirmBooking(event){
+
+event.preventDefault();
+
+let service=document.getElementById("service").value;
+
+let option=document.getElementById("option").value;
+
+let provider=document.getElementById("provider").value;
+
+let name=document.getElementById("name").value;
+
+let phone=document.getElementById("phone").value;
+
+let location=document.getElementById("location").value;
+
+let date=document.getElementById("date").value;
+
+let time=document.getElementById("time").value;
+
+let days=document.getElementById("days").value;
+
+let total=document.getElementById("total").textContent;
+
+if(!/^[0-9]{10}$/.test(phone)){
+
+alert("Please enter a valid 10 digit phone number.");
+
+return;
+
+}
+
+let booking={
+
+service:service,
+
+option:option,
+
+provider:provider,
+
+name:name,
+
+phone:phone,
+
+location:location,
+
+date:date,
+
+time:time,
+
+days:days,
+
+total:total,
+
+paid:false
+
+};
+
+
+let bookings=
+JSON.parse(localStorage.getItem("bookings")||"[]");
+
+bookings.push(booking);
+
+localStorage.setItem(
+"bookings",
+JSON.stringify(bookings)
+);
+
+
+/* PAYMENT AMOUNT */
+
+document.getElementById("paymentAmount").textContent=total;
+
+document.getElementById("upiAmount").textContent=total;
+
+
+document.getElementById("message").innerHTML=
+"<p class='success'>Booking confirmed successfully!</p>";
+
+
+displayBookings();
+
+document.getElementById("bookings").scrollIntoView();
+
+}
+
+
+/* DISPLAY BOOKINGS */
+
+function displayBookings(){
+
+let bookings=
+JSON.parse(localStorage.getItem("bookings")||"[]");
+
+let list=document.getElementById("bookingList");
+
+if(bookings.length===0){
+
+list.innerHTML=
+"<p style='text-align:center'>No bookings yet.</p>";
+
+return;
+
+}
+
+list.innerHTML="";
+
+bookings.forEach(function(b,index){
+
+let div=document.createElement("div");
+
+div.className="booking";
+
+div.innerHTML=`
+
+<h3>${b.service} - ${b.option}</h3>
+
+<p><b>Customer:</b> ${b.name}</p>
+
+<p><b>Phone:</b> ${b.phone}</p>
+
+<p><b>Provider:</b> ${b.provider}</p>
+
+<p><b>Location:</b> ${b.location}</p>
+
+<p><b>Date:</b> ${b.date}</p>
+
+<p><b>Time:</b> ${b.time}</p>
+
+<p><b>Days:</b> ${b.days}</p>
+
+<p><b>Total Cost:</b> ₹${b.total}</p>
+
+<p class="${b.paid?'paid':'pending'}">
+
+${b.paid?'✓ Payment Completed':'⚠ Payment Pending'}
+
+</p>
+
+${!b.paid?
+`<button onclick="payBooking(${index})">
+Pay Now
+</button>`:""}
+
+`;
+
+list.appendChild(div);
+
+});
+
+}
+
+
+/* PAY BOOKING */
+
+function payBooking(index){
+
+let bookings=
+JSON.parse(localStorage.getItem("bookings")||"[]");
+
+let booking=bookings[index];
+
+document.getElementById("paymentAmount").textContent=
+booking.total;
+
+document.getElementById("upiAmount").textContent=
+booking.total;
+
+document.getElementById("payment").scrollIntoView();
+
+}
+
+
+/* PAYMENT */
+
+function makePayment(){
+
+let bookings=
+JSON.parse(localStorage.getItem("bookings")||"[]");
+
+if(bookings.length===0){
+
+alert("Please make a booking first.");
+
+return;
+
+}
+
+let last=bookings.length-1;
+
+bookings[last].paid=true;
+
+localStorage.setItem(
+"bookings",
+JSON.stringify(bookings)
+);
+
+document.getElementById("paymentMessage").innerHTML=
+"<p class='success'>Payment successful! Your booking is confirmed.</p>";
+
+displayBookings();
+
+}
+
+
+/* START */
+
+window.onload=function(){
+
+displayBookings();
+
+};
+
+</script>
+
+</body>
+</html>

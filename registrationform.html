@@ -1,0 +1,113 @@
+<html>
+<head>
+</head>
+<body>
+<div>
+<form onsubmit="return validateForm()">
+
+<h2><u>REGISTRATION PAGE</u></h2>
+
+<label>USERNAME:</label>
+<input type="text" id="unname" placeholder="Enter Username"/>
+</br>
+<span id="uerror"></span>
+</br>
+
+<label>EMAIL:</label>
+<input type="text" id="email" placeholder="Enter Email"/>
+</br>
+<span id="eerror"></span>
+</br>
+
+<label>PASSWORD:</label>
+<input type="password" id="pass" placeholder="Enter Password"/>
+</br>
+<span id="perror"></span>
+</br>
+
+<label>CONFIRM PASSWORD:</label>
+<input type="password" id="cpass" placeholder="Confirm Password"/>
+</br>
+<span id="cerror"></span>
+</br>
+
+<input type="submit" value="REGISTER">
+
+</form>
+</div>
+
+<script>
+function validateForm()
+{
+let unm=document.getElementById("unname").value;
+let email=document.getElementById("email").value;
+let pwd=document.getElementById("pass").value;
+let cpwd=document.getElementById("cpass").value;
+
+let uerr=document.getElementById("uerror");
+let eerr=document.getElementById("eerror");
+let perr=document.getElementById("perror");
+let cerr=document.getElementById("cerror");
+
+let valid=true;
+
+uerr.innerHTML="";
+eerr.innerHTML="";
+perr.innerHTML="";
+cerr.innerHTML="";
+
+if(unm==="")
+{
+uerr.innerHTML="Enter USERNAME";
+valid=false;
+}
+
+if(email==="")
+{
+eerr.innerHTML="Enter EMAIL";
+valid=false;
+}
+else if(!email.includes("@") || !email.includes("."))
+{
+eerr.innerHTML="Enter a valid Email-id";
+valid=false;
+}
+
+if(pwd==="")
+{
+perr.innerHTML="Enter PASSWORD";
+valid=false;
+}
+else if(pwd.length<8)
+{
+perr.innerHTML="Password should have at least 8 characters";
+valid=false;
+}
+else if(!pwd.match(/[0-9]/))
+{
+perr.innerHTML="Password should contain atleast one number";
+valid=false;
+}
+
+if(cpwd==="")
+{
+cerr.innerHTML="Confirm your PASSWORD";
+valid=false;
+}
+else if(pwd!==cpwd)
+{
+cerr.innerHTML="Passwords do not match";
+valid=false;
+}
+
+if(valid)
+{
+alert("Registration successfully");
+}
+
+return valid;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>JavaScript Calculator</title>
+</head>
+
+<body>
+
+    <h2>Simple Calculator</h2>
+
+    <label>A = </label>
+    <input type="text" placeholder="Enter first value" id="text1">
+
+    <br><br>
+
+    <label>B = </label>
+    <input type="text" placeholder="Enter second value" id="text2">
+
+    <br><br>
+
+    <!-- Select operation -->
+    <button type="button" onclick="selectOperation('+')">+</button>
+    <button type="button" onclick="selectOperation('-')">-</button>
+    <button type="button" onclick="selectOperation('*')">*</button>
+    <button type="button" onclick="selectOperation('/')">/</button>
+
+    <br><br>
+
+    <!-- Calculate result only when = is clicked -->
+    <button type="button" onclick="calculate()">=</button>
+
+    <br><br>
+
+    <p id="demo1"></p>
+
+    <script>
+        var operator = "";
+
+        function selectOperation(op) {
+            operator = op;
+        }
+
+        function calculate() {
+            var a = Number(document.getElementById("text1").value);
+            var b = Number(document.getElementById("text2").value);
+            var c;
+
+            if (operator == "+") {
+                c = a + b;
+            }
+            else if (operator == "-") {   
+                c = a - b;
+            }
+            else if (operator == "*") {
+                c = a * b;
+            }
+            else if (operator == "/") {
+                if (b != 0) {
+                    c = a / b;
+                }
+                else {
+                    c = "Cannot divide by zero";
+                }
+            }
+            else {
+                c = "Please select an operator";
+            }
+
+            document.getElementById("demo1").innerHTML = "Result = " + c;
+        }
+    </script>
+
+</body>
+</html>

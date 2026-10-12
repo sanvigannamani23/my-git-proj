@@ -1,0 +1,72 @@
+<html>
+<head>
+</head>
+<body>
+<div>
+<form onsubmit="return validateForm()">
+<h2><u>LOGIN PAGE</u></h2>
+<label>USERNAME:</label>
+<input type="text" id="unname" placeholder="Enter Username"/>
+</br>
+<span id="uerror"></span>
+</br>
+<label>PASSWORD:</label>
+<input type="password" id="pass" placeholder="Enter Password"/>
+</br>
+<span id="perror"></span>
+</br>
+<input type="submit" value="SUBMIT">
+</form>
+</div>
+<script>
+function validateForm()
+{
+let unm=document.getElementById("unname").value;
+let pwd=document.getElementById("pass").value;
+let uerr=document.getElementById("uerror");
+let perr=document.getElementById("perror");
+let valid=true;
+uerr.innerHTML="";
+perr.innerHTML="";
+if(unm==="")
+{
+uerr.innerHTML="Enter USERNAME";
+valid=false;
+}
+else if(!unm.includes("@"))
+{
+uerr.innerHTML="Enter a valid Email-id";
+valid=false;
+}
+else if(!unm.includes("."))
+{
+uerr.innerHTML="Enter a valid Email-id";
+valid=false;
+}
+else if(pwd==="")
+{
+perr.innerHTML="Enter PASSWORD";
+valid=false;
+}
+else if(pwd.length<8)
+{
+perr.innerHTML="Password should have at least 8 characters";
+valid=false;
+}
+else if(!pwd.match(/[0-9]/))
+{
+perr.innerHTML="Password should contain atleast one number";
+valid=false;
+}
+else
+{
+localStorage.setItem('uname', unm);
+localStorage.setItem('pwd', pwd);
+alert("Login successfully");
+valid=true;
+}
+return valid;
+}
+</script>
+</body>
+</html>
