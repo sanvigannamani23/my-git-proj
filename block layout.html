@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>Block layout</title>
+<style>
+    .container {
+        border: 1px solid red;
+        display: grid;
+        grid-row : 10%, 30%, 30%, 30%;
+        grid-column: 25%, 25%, 25%, 25%;
+    }
+    .sec1 {
+        background-color: yellow;
+        height: 20vh;
+        grid-row: 1/2;
+        grid-column: 1/5;
+
+    }
+    .sec2 {
+        background-color: orange;
+        height: 30vh;
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+    .sec3 {    
+        background-color: green;
+        height: 30vh;
+        grid-row: 2/3;
+        grid-column: 2/3;
+    }
+    .sec4 {
+        background-color: blue;
+        height: 30vh;
+        grid-row: 2/3;
+        grid-column: 3/4;
+    }
+    .sec5 {      
+        background-color: purple;
+        height: 60vh;
+        grid-row: 2/4;
+        grid-column: 4/5;
+    }
+    .sec6 {
+        background-color: red;
+        height: 30vh;
+        grid-row: 3/4;
+        grid-column: 1/4;
+    }
+    .sec7 {
+        background-color: gray;
+        height: 20vh;
+        grid-row: 4/5;
+        grid-column: 1/5;
+    }
+</style>
+</head>
+<body>
+    <div class = "container">
+        <div class = "sec1">s1</div>
+        <div class = "sec2">s2</div>
+        <div class = "sec3">s3</div>
+        <div class = "sec4">s4</div>
+        <div class = "sec5">s5</div>
+        <div class = "sec6">s6</div>
+        <div class = "sec7">s7</div>
+    </div>
+</body>
+</html>
